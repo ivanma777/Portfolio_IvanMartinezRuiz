@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iván Martínez · Indie Game Developer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Space Grotesk', 'sans-serif'] },
+          colors: {
+            neon: {
+              cyan: '#22d3ee',
+              purple: '#a855f7',
+              emerald: '#34d399'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background:
+        radial-gradient(ellipse 80% 50% at 20% -10%, rgba(168, 85, 247, 0.15), transparent),
+        radial-gradient(ellipse 60% 40% at 80% 10%, rgba(34, 211, 238, 0.12), transparent),
+        #0b0f1a;
+    }
+    .glass {
+      background: rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .game-card {
+      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+    }
+    .game-card:hover {
+      transform: scale(1.04) translateY(-6px);
+      border-color: rgba(34, 211, 238, 0.5);
+      box-shadow:
+        0 0 30px rgba(34, 211, 238, 0.25),
+        0 0 60px rgba(168, 85, 247, 0.15);
+    }
+    .game-card img {
+      transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .game-card:hover img {
+      transform: scale(1.08);
+    }
+    .btn-neon {
+      box-shadow: 0 0 20px rgba(34, 211, 238, 0.35);
+      transition: box-shadow 0.3s ease, transform 0.3s ease, filter 0.3s ease;
+    }
+    .btn-neon:hover {
+      box-shadow: 0 0 35px rgba(34, 211, 238, 0.6);
+      transform: translateY(-2px);
+      filter: brightness(1.1);
+    }
+    #modal {
+      transition: opacity 0.3s ease;
+    }
+    #modal.hidden-modal {
+      opacity: 0;
+      pointer-events: none;
+    }
+    #modal-card {
+      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.35s ease;
+    }
+    #modal.hidden-modal #modal-card {
+      transform: scale(0.92) translateY(20px);
+      opacity: 0;
+    }
+    .text-glow {
+      text-shadow: 0 0 20px rgba(34, 211, 238, 0.6);
+    }
+    ::-webkit-scrollbar { width: 10px; }
+    ::-webkit-scrollbar-track { background: #0b0f1a; }
+    ::-webkit-scrollbar-thumb { background: #334155; border-radius: 8px; }
+  </style>
+</head>
+<body class="font-sans text-slate-200 min-h-screen antialiased overflow-x-hidden">
+
+  <!-- ===== HEADER / HERO ===== -->
+  <header class="relative pt-24 pb-16 px-6">
+    <div class="max-w-6xl mx-auto text-center">
+      <div class="inline-flex items-center gap-2 glass rounded-full px-4 py-1.5 text-xs tracking-widest uppercase text-cyan-300 mb-6">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        Disponible para nuevos proyectos
+      </div>
+      <h1 class="text-5xl md:text-7xl font-bold tracking-tight">
+        <span class="text-glow text-white">Iván</span>
+        <span class="bg-gradient-to-r from-cyan-400 via-purple-500 to-cyan-400 bg-clip-text text-transparent">Martínez</span>
+      </h1>
+      <p class="mt-4 text-xl md:text-2xl font-medium text-cyan-300 tracking-wide">Indie Game Developer</p>
+      <p class="mt-6 max-w-2xl mx-auto text-slate-400 leading-relaxed">
+        Diseño y desarrollo videojuegos que nacen de la pasión por lo handmade:
+        mecánicas arriesgadas, mundos pixelados y experiencias que no encontrarás
+        en ningún estudio AAA. Cada proyecto es un laboratorio de ideas hecho con
+        <span class="text-purple-400 font-semibold">código, café y cariño</span>.
+      </p>
+      <div class="mt-10 flex flex-wrap justify-center gap-4">
+        <a href="#proyectos" class="btn-neon px-8 py-3 rounded-xl font-semibold bg-gradient-to-r from-cyan-500 to-purple-600 text-white">
+          Ver mis juegos
+        </a>
+        <a href="#contacto" class="glass px-8 py-3 rounded-xl font-semibold text-slate-200 hover:border-cyan-400/50 hover:text-cyan-300 transition-all duration-300">
+          Contactar
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== SECCIÓN DE PROYECTOS ===== -->
+  <main id="proyectos" class="max-w-6xl mx-auto px-6 py-16">
+    <div class="mb-10">
+      <h2 class="text-3xl md:text-4xl font-bold text-white flex items-center gap-4">
+        <span class="w-10 h-1 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full"></span>
+        Proyectos
+      </h2>
+      <p class="mt-3 text-slate-400">Haz clic en cualquier tarjeta para descubrir las mecánicas del juego.</p>
+    </div>
+
+    <div id="games-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer id="contacto" class="mt-16 border-t border-white/5 glass">
+    <div class="max-w-6xl mx-auto px-6 py-12 flex flex-col md:flex-row items-center justify-between gap-8">
+      <div class="text-center md:text-left">
+        <p class="text-xl font-bold text-white">Iván Martínez</p>
+        <p class="text-slate-400 text-sm mt-1">Indie Game Developer · Construyendo mundos, un píxel a la vez.</p>
+        <a href="mailto:ivan.martinez@example.com" class="text-cyan-400 hover:text-cyan-300 transition-colors text-sm mt-2 inline-block">ivan.martinez@example.com</a>
+      </div>
+      <div class="flex items-center gap-5">
+        <a href="https://github.com/ivanmartinez" target="_blank" rel="noopener" aria-label="GitHub"
+           class="glass w-12 h-12 rounded-xl flex items-center justify-center text-slate-300 hover:text-white hover:border-purple-400/60 hover:shadow-[0_0_20px_rgba(168,85,247,0.35)] transition-all duration-300">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.55v-2.17c-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.75 2.69 1.25 3.34.95.1-.74.4-1.25.72-1.53-2.55-.29-5.23-1.28-5.23-5.68 0-1.25.45-2.28 1.18-3.08-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 2.87-.39c.97 0 1.95.13 2.87.39 2.19-1.49 3.15-1.18 3.15-1.18.62 1.59.23 2.76.11 3.05.73.8 1.18 1.83 1.18 3.08 0 4.41-2.69 5.38-5.25 5.66.41.36.77 1.05.77 2.13v3.16c0 .3.21.66.8.55A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+        </a>
+        <a href="https://twitter.com/ivanmartinez" target="_blank" rel="noopener" aria-label="Twitter"
+           class="glass w-12 h-12 rounded-xl flex items-center justify-center text-slate-300 hover:text-white hover:border-cyan-400/60 hover:shadow-[0_0_20px_rgba(34,211,238,0.35)] transition-all duration-300">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.66l-5.21-6.82-5.97 6.82H1.67l7.73-8.84L1.25 2.25h6.83l4.71 6.23 5.45-6.23zm-1.16 17.52h1.83L7.08 4.13H5.12l11.96 15.64z"/></svg>
+        </a>
+        <a href="https://linkedin.com/in/ivanmartinez" target="_blank" rel="noopener" aria-label="LinkedIn"
+           class="glass w-12 h-12 rounded-xl flex items-center justify-center text-slate-300 hover:text-white hover:border-emerald-400/60 hover:shadow-[0_0_20px_rgba(52,211,153,0.35)] transition-all duration-300">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="border-t border-white/5 py-5 text-center text-xs text-slate-500">
+      © 2026 Iván Martínez · Hecho con HTML, CSS y Vanilla JS · Todos los juegos son obra de un solo desarrollador
+    </div>
+  </footer>
+
+  <!-- ===== MODAL ===== -->
+  <div id="modal" class="hidden-modal fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8 bg-black/60 backdrop-blur-md">
+    <article id="modal-card" class="glass rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto relative">
+      <button id="modal-close" aria-label="Cerrar"
+              class="absolute top-4 right-4 z-10 w-10 h-10 rounded-full glass flex items-center justify-center text-slate-300 hover:text-white hover:bg-red-500/20 hover:border-red-400/60 transition-all duration-300 text-xl font-bold">
+        ✕
+      </button>
+      <img id="modal-image" src="" alt="" class="w-full h-56 md:h-72 object-cover rounded-t-2xl">
+      <div class="p-6 md:p-8">
+        <h3 id="modal-title" class="text-2xl md:text-3xl font-bold text-white text-glow"></h3>
+        <p id="modal-short" class="mt-2 text-cyan-300 text-sm font-medium"></p>
+        <p id="modal-description" class="mt-4 text-slate-300 leading-relaxed"></p>
+        <a id="modal-cta" href="#" target="_blank" rel="noopener"
+           class="btn-neon mt-8 flex items-center justify-center gap-3 px-6 py-3.5 rounded-xl font-semibold text-lg bg-gradient-to-r from-cyan-500 to-purple-600 text-white">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M3.9 12a5.5 5.5 0 0 1 3.8-5.24c1.37-.5 2.3-1.06 2.3-1.76 0-.9-1.44-1.28-2.72-.66C4.5 5.7 3 8.65 3 12s1.5 6.3 4.28 7.66c1.28.62 2.72.24 2.72-.66 0-.7-.93-1.26-2.3-1.76A5.5 5.5 0 0 1 3.9 12zm16.3-2.47l-7.1-3.25c-.8-.36-1.6.23-1.6 1.08v1.14c-3.4.42-6 2.5-6 5.5 0 0 .75-1.5 6-1.5v1.14c0 .85.8 1.44 1.6 1.08l7.1-3.25c.9-.42.9-1.66 0-2.08z"/></svg>
+          Jugar en itch.io
+        </a>
+      </div>
+    </article>
+  </div>
+
+  <script>
+    // ====== DATOS DE LOS JUEGOS ======
+    const games = [
+      {
+        id: 1,
+        title: "Neon Drift Protocol",
+        short: "Carreras antigravedad en una megaciudad cyberpunk.",
+        long: "Pilota hoverbikes a más de 400 km/h por las Torres de Neo-Kyoto mientras hackeas los sistemas de tus rivales en tiempo real. Cada circuito se genera proceduralmente: saltos imposibles, atajos ocultos y distorsiones de gravedad que reinventan cada carrera. El sistema de 'Drift Hack' te permite robar turbina, escudos o incluso el control del volante de tus oponentes... pero ellos también pueden hackearte a ti.",
+        image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=800&q=80",
+        url: "https://ivanmartinez.itch.io/neon-drift-protocol"
+      },
+      {
+        id: 2,
+        title: "Rootbound",
+        short: "Un metroidvania donde crees plantas para avanzar.",
+        long: "Explora un bosque subterráneo olvidado como la última semilla del mundo. No tienes armas: tu único poder es hacer creer plantas ancestrales que reforman el terreno. Lianas para balancearte, raíces para escalar, flores carnívoras para despejar caminos. Cada planta es permanente, así que el mundo se transforma con tu estilo de juego. Más de 60 salas interconectadas, 5 jefes y un mapa que florece literalmente a medida que avanzas.",
+        image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=800&q=80",
+        url: "https://ivanmartinez.itch.io/rootbound"
+      },
+      {
+        id: 3,
+        title: "Void Bakery",
+        short: "Gestiona una panadería en el borde de un agujero negro.",
+        long: "Un sim de gestión absurdo y cozy: tu panadería orbita un agujero negro y la dilatación temporal es tu mejor herramienta. Un día para tus clientes son 10 minutos para ti. Hornea con ingredientes extradimensionales, atiende a alienígenas imposibles y descubre la receta legendaria que dicen puede escapar de la singularidad. Pero cuidado: si el horno colapsa, el espacio-tiempo también.",
+        image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=800&q=80",
+        url: "https://ivanmartinez.itch.io/void-bakery"
+      },
+      {
+        id: 4,
+        title: "Static Souls",
+        short: "Roguelite de acción con mecánicas de radio analógica.",
+        long: "Un roguelite 2D donde tus habilidades se sintonizan como emisoras de radio. Cada 'frecuencia' que encuentras es un poder distinto, y puedes mezclarlas para crear interferencias devastadoras: la onda de hielo sobre la señal de gravedad crea una tormenta de metralla congelada. 7 biomas, 140+ frecuencias combinables y un modo diario donde todos los jugadores sintonizan las mismas señales roto durante 24 horas.",
+        image: "https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?w=800&q=80",
+        url: "https://ivanmartinez.itch.io/static-souls"
+      },
+      {
+        id: 5,
+        title: "Lighthouse Keeper",
+        short: "Misterio narrativo en una isla que no existe en los mapas.",
+        long: "Eres el farero de una isla que aparece y desaparece del océano. Cada noche, el faro atrae barcos de épocas diferentes: un velero del siglo XIX, un carguero moderno, una nave que no deberías ver. Atiende a sus tripulaciones, resuelve sus historias entrelazadas y descubre por qué el mar te eligió a ti. Un juego sobre duelos, faros y lo que dejamos encendido para los demás. 4 horas de narrativa ramificada y 3 finales.",
+        image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80",
+        url: "https://ivanmartinez.itch.io/lighthouse-keeper"
+      }
+    ];
+
+    // ====== GENERACIÓN DINÁMICA DE TARJETAS ======
+    const grid = document.getElementById("games-grid");
+
+    games.forEach((game) => {
+      const card = document.createElement("article");
+      card.className = "game-card glass rounded-2xl overflow-hidden cursor-pointer group";
+      card.innerHTML = `
+        <div class="h-48 overflow-hidden relative">
+          <img src="${game.image}" alt="Portada de ${game.title}" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-gradient-to-t from-[#0b0f1a] via-transparent to-transparent"></div>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-white group-hover:text-cyan-300 transition-colors duration-300">${game.title}</h3>
+          <p class="mt-2 text-sm text-slate-400 leading-relaxed">${game.short}</p>
+          <span class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-cyan-400 group-hover:gap-3 transition-all duration-300">
+            Ver detalles
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+          </span>
+        </div>
+      `;
+      card.addEventListener("click", () => openModal(game));
+      grid.appendChild(card);
+    });
+
+    // ====== LÓGICA DEL MODAL ======
+    const modal = document.getElementById("modal");
+    const modalImage = document.getElementById("modal-image");
+    const modalTitle = document.getElementById("modal-title");
+    const modalShort = document.getElementById("modal-short");
+    const modalDescription = document.getElementById("modal-description");
+    const modalCta = document.getElementById("modal-cta");
+    const modalClose = document.getElementById("modal-close");
+
+    function openModal(game) {
+      modalImage.src = game.image;
+      modalImage.alt = `Imagen de ${game.title}`;
+      modalTitle.textContent = game.title;
+      modalShort.textContent = game.short;
+      modalDescription.textContent = game.long;
+      modalCta.href = game.url;
+      modal.classList.remove("hidden-modal");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeModal() {
+      modal.classList.add("hidden-modal");
+      document.body.style.overflow = "";
+    }
+
+    modalClose.addEventListener("click", closeModal);
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) closeModal();
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeModal();
+    });
+  </script>
+</body>
+</html>
