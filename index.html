@@ -61,23 +61,24 @@
       transform: translateY(-2px);
       filter: brightness(1.1);
     }
-    #modal {
+    .modal-overlay {
       transition: opacity 0.3s ease;
     }
-    #modal.hidden-modal {
+    .modal-overlay.hidden-modal {
       opacity: 0;
       pointer-events: none;
     }
-    #modal-card {
+    .modal-card {
       transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.35s ease;
     }
-    #modal.hidden-modal #modal-card {
+    .modal-overlay.hidden-modal .modal-card {
       transform: scale(0.92) translateY(20px);
       opacity: 0;
     }
     .text-glow {
       text-shadow: 0 0 20px rgba(34, 211, 238, 0.6);
     }
+
     ::-webkit-scrollbar { width: 10px; }
     ::-webkit-scrollbar-track { background: #0b0f1a; }
     ::-webkit-scrollbar-thumb { background: #334155; border-radius: 8px; }
@@ -86,23 +87,48 @@
 <body class="font-sans text-slate-200 min-h-screen antialiased overflow-x-hidden">
 
   <!-- ===== HEADER / HERO ===== -->
-  <header class="relative pt-24 pb-16 px-6">
+  <header class="relative pt-16 pb-16 px-6">
     <div class="max-w-6xl mx-auto text-center">
-      <div class="inline-flex items-center gap-2 glass rounded-full px-4 py-1.5 text-xs tracking-widest uppercase text-cyan-300 mb-6">
-        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-        Disponible para nuevos proyectos
+      <div class="relative mx-auto mb-8 w-40 h-40 md:w-48 md:h-48">
+        <div class="absolute -inset-1.5 rounded-full bg-gradient-to-tr from-cyan-400 via-purple-500 to-emerald-400 blur-md opacity-70"></div>
+        <img src="Foto_Perfil.JPG" alt="Foto de Iván Martínez Ruíz"
+             class="relative w-full h-full object-cover rounded-full ring-4 ring-[#0b0f1a]">
       </div>
       <h1 class="text-5xl md:text-7xl font-bold tracking-tight">
         <span class="text-glow text-white">Iván</span>
-        <span class="bg-gradient-to-r from-cyan-400 via-purple-500 to-cyan-400 bg-clip-text text-transparent">Martínez</span>
+        <span class="bg-gradient-to-r from-cyan-400 via-purple-500 to-cyan-400 bg-clip-text text-transparent">Martínez Ruíz</span>
       </h1>
       <p class="mt-4 text-xl md:text-2xl font-medium text-cyan-300 tracking-wide">Indie Game Developer</p>
-      <p class="mt-6 max-w-2xl mx-auto text-slate-400 leading-relaxed">
-        Diseño y desarrollo videojuegos que nacen de la pasión por lo handmade:
-        mecánicas arriesgadas, mundos pixelados y experiencias que no encontrarás
-        en ningún estudio AAA. Cada proyecto es un laboratorio de ideas hecho con
-        <span class="text-purple-400 font-semibold">código, café y cariño</span>.
-      </p>
+
+      <div class="mt-6 flex items-center justify-center gap-5">
+        <a href="https://github.com/ivanmartinez" target="_blank" rel="noopener" aria-label="GitHub"
+           class="glass w-12 h-12 rounded-xl flex items-center justify-center text-slate-300 hover:text-white hover:border-purple-400/60 hover:shadow-[0_0_20px_rgba(168,85,247,0.35)] transition-all duration-300">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.55v-2.17c-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.75 2.69 1.25 3.34.95.1-.74.4-1.25.72-1.53-2.55-.29-5.23-1.28-5.23-5.68 0-1.25.45-2.28 1.18-3.08-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 2.87-.39c.97 0 1.95.13 2.87.39 2.19-1.49 3.15-1.18 3.15-1.18.62 1.59.23 2.76.11 3.05.73.8 1.18 1.83 1.18 3.08 0 4.41-2.69 5.38-5.25 5.66.41.36.77 1.05.77 2.13v3.16c0 .3.21.66.8.55A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+        </a>
+        <a href="https://drive.google.com/file/d/1ID83rW78id5SZEgn2Zu9WttpRR4bRXj4/view?usp=drive_link" target="_blank" rel="noopener" aria-label="Curriculum Vitae"
+           class="glass w-12 h-12 rounded-xl flex items-center justify-center text-slate-300 hover:text-white hover:border-cyan-400/60 hover:shadow-[0_0_20px_rgba(34,211,238,0.35)] transition-all duration-300">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"/></svg>
+        </a>
+        <a href="https://linkedin.com/in/ivanmartinez" target="_blank" rel="noopener" aria-label="LinkedIn"
+           class="glass w-12 h-12 rounded-xl flex items-center justify-center text-slate-300 hover:text-white hover:border-emerald-400/60 hover:shadow-[0_0_20px_rgba(52,211,153,0.35)] transition-all duration-300">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+        </a>
+      </div>
+
+      <div class="mt-8 max-w-md mx-auto">
+        <button id="about-open" class="game-card glass w-full rounded-2xl px-6 py-4 flex items-center justify-between gap-4 text-left group">
+          <span class="flex items-center gap-4">
+            <span class="w-11 h-11 rounded-xl bg-gradient-to-r from-cyan-500/20 to-purple-600/20 border border-white/10 flex items-center justify-center text-cyan-300 shrink-0">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"/></svg>
+            </span>
+            <span>
+              <span class="block font-semibold text-white group-hover:text-cyan-300 transition-colors duration-300">Sobre mí</span>
+              <span class="block text-xs text-slate-400 mt-0.5">Mi historia y los lenguajes que domino</span>
+            </span>
+          </span>
+          <svg class="w-5 h-5 text-cyan-400 group-hover:translate-x-1 transition-transform duration-300 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+        </button>
+      </div>
       <div class="mt-10 flex flex-wrap justify-center gap-4">
         <a href="#proyectos" class="btn-neon px-8 py-3 rounded-xl font-semibold bg-gradient-to-r from-cyan-500 to-purple-600 text-white">
           Ver mis juegos
@@ -140,9 +166,9 @@
            class="glass w-12 h-12 rounded-xl flex items-center justify-center text-slate-300 hover:text-white hover:border-purple-400/60 hover:shadow-[0_0_20px_rgba(168,85,247,0.35)] transition-all duration-300">
           <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.55v-2.17c-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.75 2.69 1.25 3.34.95.1-.74.4-1.25.72-1.53-2.55-.29-5.23-1.28-5.23-5.68 0-1.25.45-2.28 1.18-3.08-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 2.87-.39c.97 0 1.95.13 2.87.39 2.19-1.49 3.15-1.18 3.15-1.18.62 1.59.23 2.76.11 3.05.73.8 1.18 1.83 1.18 3.08 0 4.41-2.69 5.38-5.25 5.66.41.36.77 1.05.77 2.13v3.16c0 .3.21.66.8.55A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
         </a>
-        <a href="https://twitter.com/ivanmartinez" target="_blank" rel="noopener" aria-label="Twitter"
+        <a href="https://drive.google.com/file/d/1ID83rW78id5SZEgn2Zu9WttpRR4bRXj4/view?usp=drive_link" target="_blank" rel="noopener" aria-label="Curriculum Vitae"
            class="glass w-12 h-12 rounded-xl flex items-center justify-center text-slate-300 hover:text-white hover:border-cyan-400/60 hover:shadow-[0_0_20px_rgba(34,211,238,0.35)] transition-all duration-300">
-          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.66l-5.21-6.82-5.97 6.82H1.67l7.73-8.84L1.25 2.25h6.83l4.71 6.23 5.45-6.23zm-1.16 17.52h1.83L7.08 4.13H5.12l11.96 15.64z"/></svg>
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"/></svg>
         </a>
         <a href="https://linkedin.com/in/ivanmartinez" target="_blank" rel="noopener" aria-label="LinkedIn"
            class="glass w-12 h-12 rounded-xl flex items-center justify-center text-slate-300 hover:text-white hover:border-emerald-400/60 hover:shadow-[0_0_20px_rgba(52,211,153,0.35)] transition-all duration-300">
@@ -156,8 +182,8 @@
   </footer>
 
   <!-- ===== MODAL ===== -->
-  <div id="modal" class="hidden-modal fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8 bg-black/60 backdrop-blur-md">
-    <article id="modal-card" class="glass rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto relative">
+  <div id="modal" class="modal-overlay hidden-modal fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8 bg-black/60 backdrop-blur-md">
+    <article id="modal-card" class="modal-card glass rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto relative">
       <button id="modal-close" aria-label="Cerrar"
               class="absolute top-4 right-4 z-10 w-10 h-10 rounded-full glass flex items-center justify-center text-slate-300 hover:text-white hover:bg-red-500/20 hover:border-red-400/60 transition-all duration-300 text-xl font-bold">
         ✕
@@ -172,6 +198,47 @@
           <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M3.9 12a5.5 5.5 0 0 1 3.8-5.24c1.37-.5 2.3-1.06 2.3-1.76 0-.9-1.44-1.28-2.72-.66C4.5 5.7 3 8.65 3 12s1.5 6.3 4.28 7.66c1.28.62 2.72.24 2.72-.66 0-.7-.93-1.26-2.3-1.76A5.5 5.5 0 0 1 3.9 12zm16.3-2.47l-7.1-3.25c-.8-.36-1.6.23-1.6 1.08v1.14c-3.4.42-6 2.5-6 5.5 0 0 .75-1.5 6-1.5v1.14c0 .85.8 1.44 1.6 1.08l7.1-3.25c.9-.42.9-1.66 0-2.08z"/></svg>
           Jugar en itch.io
         </a>
+      </div>
+    </article>
+  </div>
+
+  <!-- ===== MODAL SOBRE MÍ ===== -->
+  <div id="about-modal" class="modal-overlay hidden-modal fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8 bg-black/60 backdrop-blur-md">
+    <article class="modal-card glass rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto relative">
+      <button id="about-modal-close" aria-label="Cerrar"
+              class="absolute top-4 right-4 z-10 w-10 h-10 rounded-full glass flex items-center justify-center text-slate-300 hover:text-white hover:bg-red-500/20 hover:border-red-400/60 transition-all duration-300 text-xl font-bold">
+        ✕
+      </button>
+      <div class="p-6 md:p-8 pt-8 md:pt-10">
+        <h3 class="text-2xl md:text-3xl font-bold text-white text-glow">Sobre mí</h3>
+        <p class="mt-2 text-cyan-300 text-sm font-medium">Indie Game Developer · Código, café y cariño</p>
+        <p class="mt-4 text-slate-300 leading-relaxed">
+          Soy Iván, desarrollador indie completo: diseño, programo y publico
+          mis videojuegos de principio a fin. Me mueven las mecánicas
+          arriesgadas, los mundos pixelados y las experiencias que no
+          encontrarás en ningún estudio AAA. Trabajo principalmente con
+          <span class="text-cyan-300 font-medium">C#, C++ y OpenGL</span>,
+          del gameplay a los gráficos. Cada proyecto es un laboratorio de
+          ideas hecho con
+          <span class="text-purple-400 font-semibold">código, café y cariño</span>.
+        </p>
+        <h4 class="mt-6 mb-4 text-sm font-semibold tracking-widest uppercase text-cyan-300">
+          Lenguajes que domino
+        </h4>
+        <div class="grid grid-cols-3 gap-4">
+          <div class="glass rounded-xl py-5 px-3 flex flex-col items-center gap-3 hover:border-purple-400/50 hover:shadow-[0_0_20px_rgba(168,85,247,0.25)] transition-all duration-300">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="Logo de C#" class="w-14 h-14">
+            <span class="text-sm font-semibold text-slate-200">C#</span>
+          </div>
+          <div class="glass rounded-xl py-5 px-3 flex flex-col items-center gap-3 hover:border-cyan-400/50 hover:shadow-[0_0_20px_rgba(34,211,238,0.25)] transition-all duration-300">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="Logo de C++" class="w-14 h-14">
+            <span class="text-sm font-semibold text-slate-200">C++</span>
+          </div>
+          <div class="glass rounded-xl py-5 px-3 flex flex-col items-center gap-3 hover:border-emerald-400/50 hover:shadow-[0_0_20px_rgba(52,211,153,0.25)] transition-all duration-300">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opengl/opengl-original.svg" alt="Logo de OpenGL" class="w-14 h-14">
+            <span class="text-sm font-semibold text-slate-200">OpenGL</span>
+          </div>
+        </div>
       </div>
     </article>
   </div>
@@ -274,8 +341,32 @@
     modal.addEventListener("click", (e) => {
       if (e.target === modal) closeModal();
     });
+
+    // ====== LÓGICA DEL MODAL "SOBRE MÍ" ======
+    const aboutModal = document.getElementById("about-modal");
+    const aboutOpenBtn = document.getElementById("about-open");
+    const aboutCloseBtn = document.getElementById("about-modal-close");
+
+    function openAboutModal() {
+      aboutModal.classList.remove("hidden-modal");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeAboutModal() {
+      aboutModal.classList.add("hidden-modal");
+      document.body.style.overflow = "";
+    }
+
+    aboutOpenBtn.addEventListener("click", openAboutModal);
+    aboutCloseBtn.addEventListener("click", closeAboutModal);
+    aboutModal.addEventListener("click", (e) => {
+      if (e.target === aboutModal) closeAboutModal();
+    });
     document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") closeModal();
+      if (e.key === "Escape") {
+        closeModal();
+        closeAboutModal();
+      }
     });
   </script>
 </body>
