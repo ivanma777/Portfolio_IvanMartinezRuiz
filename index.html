@@ -594,34 +594,6 @@
       </div>
     </section>
 
-    <!-- ===== CONTACTO ===== -->
-    <section id="contacto" class="px-6 pt-16 pb-10 scroll-mt-24">
-      <div class="reveal max-w-5xl mx-auto glass rounded-3xl relative overflow-hidden p-10 sm:p-16 text-center">
-        <div class="absolute -top-24 -left-16 w-64 h-64 rounded-full bg-cyan-500/20 blur-[90px]"></div>
-        <div class="absolute -bottom-24 -right-16 w-64 h-64 rounded-full bg-purple-500/20 blur-[90px]"></div>
-
-        <div class="relative">
-          <p class="font-mono text-xs tracking-[0.3em] text-cyan-400/90 uppercase mb-4"><span class="text-slate-600">//</span> new game +</p>
-          <h2 class="font-display text-4xl sm:text-6xl font-extrabold text-white leading-tight">
-            ¿Construimos algo<br class="hidden sm:block"> <span class="gradient-text">juntos</span>?
-          </h2>
-          <p class="mt-5 text-slate-400 max-w-xl mx-auto">
-            Estoy abierto a colaboraciones, oportunidades y proyectos donde la
-            creatividad no tenga techo.
-          </p>
-          <div class="mt-9 flex flex-wrap items-center justify-center gap-4">
-            <a href="mailto:ivan.martinez@example.com" class="magnetic btn-primary px-8 py-4 rounded-xl font-semibold text-white inline-flex items-center gap-3">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"/></svg>
-              Escríbeme
-            </a>
-            <a href="https://github.com/ivanma777" target="_blank" rel="noopener" class="magnetic btn-ghost glass px-8 py-4 rounded-xl font-semibold text-slate-200">
-              Ver GitHub
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- ===== FOOTER ===== -->
     <footer class="max-w-6xl mx-auto px-6 py-12">
       <div class="flex flex-col md:flex-row items-center justify-between gap-6">
@@ -676,48 +648,30 @@
     const games = [
       {
         id: 1,
-        title: "Neon Drift Protocol",
-        short: "Carreras antigravedad en una megaciudad cyberpunk.",
-        long: "Pilota hoverbikes a más de 400 km/h por las Torres de Neo-Kyoto mientras hackeas los sistemas de tus rivales en tiempo real. Cada circuito se genera proceduralmente: saltos imposibles, atajos ocultos y distorsiones de gravedad que reinventan cada carrera. El sistema de 'Drift Hack' te permite robar turbina, escudos o incluso el control del volante de tus oponentes... pero ellos también pueden hackearte a ti.",
-        tags: ["Carreras", "Cyberpunk", "Procedural"],
-        image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=800&q=80",
-        url: "https://ivanmartinez.itch.io/neon-drift-protocol"
+        title: "Snowball Sleigh",
+        short: "Car game",
+        long: "Carrera arcade basada en físicas. Controla una bola a través de un circuito de hielo y utiliza un trineo para avanzar por el recorrido.",
+        tags: ["Carreras"],
+        image: "./Snowball_portada.png",
+        url: "https://ivama.itch.io/snowball-sleigh"
       },
       {
         id: 2,
-        title: "Rootbound",
-        short: "Un metroidvania donde crees plantas para avanzar.",
-        long: "Explora un bosque subterráneo olvidado como la última semilla del mundo. No tienes armas: tu único poder es hacer creer plantas ancestrales que reforman el terreno. Lianas para balancearte, raíces para escalar, flores carnívoras para despejar caminos. Cada planta es permanente, así que el mundo se transforma con tu estilo de juego. Más de 60 salas interconectadas, 5 jefes y un mapa que florece literalmente a medida que avanzas.",
-        tags: ["Metroidvania", "Puzzle", "Pixel Art"],
-        image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=800&q=80",
-        url: "https://ivanmartinez.itch.io/rootbound"
+        title: "Lost Vault",
+        short: "Isometric action RPG",
+        long: "Aventura de acción con perspectiva isométrica. Explora las catacumbas,  acepta misiones y enfréntate a  enemigos para conseguir dinero.",
+        tags: ["3D", "Isometric", "Exploration"],
+        image: "./Lost_Vault.png",
+        url: "https://ivama.itch.io/lost-vault"
       },
       {
         id: 3,
-        title: "Void Bakery",
-        short: "Gestiona una panadería en el borde de un agujero negro.",
-        long: "Un sim de gestión absurdo y cozy: tu panadería orbita un agujero negro y la dilatación temporal es tu mejor herramienta. Un día para tus clientes son 10 minutos para ti. Hornea con ingredientes extradimensionales, atiende a alienígenas imposibles y descubre la receta legendaria que dicen puede escapar de la singularidad. Pero cuidado: si el horno colapsa, el espacio-tiempo también.",
-        tags: ["Gestión", "Cozy", "Sci-Fi"],
-        image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=800&q=80",
-        url: "https://ivanmartinez.itch.io/void-bakery"
-      },
-      {
-        id: 4,
-        title: "Static Souls",
-        short: "Roguelite de acción con mecánicas de radio analógica.",
-        long: "Un roguelite 2D donde tus habilidades se sintonizan como emisoras de radio. Cada 'frecuencia' que encuentras es un poder distinto, y puedes mezclarlas para crear interferencias devastadoras: la onda de hielo sobre la señal de gravedad crea una tormenta de metralla congelada. 7 biomas, 140+ frecuencias combinables y un modo diario donde todos los jugadores sintonizan las mismas señales roto durante 24 horas.",
-        tags: ["Roguelite", "Acción", "2D"],
-        image: "https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?w=800&q=80",
-        url: "https://ivanmartinez.itch.io/static-souls"
-      },
-      {
-        id: 5,
-        title: "Lighthouse Keeper",
-        short: "Misterio narrativo en una isla que no existe en los mapas.",
-        long: "Eres el farero de una isla que aparece y desaparece del océano. Cada noche, el faro atrae barcos de épocas diferentes: un velero del siglo XIX, un carguero moderno, una nave que no deberías ver. Atiende a sus tripulaciones, resuelve sus historias entrelazadas y descubre por qué el mar te eligió a ti. Un juego sobre duelos, faros y lo que dejamos encendido para los demás. 4 horas de narrativa ramificada y 3 finales.",
-        tags: ["Narrativo", "Misterio", "Atmósfera"],
-        image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80",
-        url: "https://ivanmartinez.itch.io/lighthouse-keeper"
+        title: "Black Steel",
+        short: "First-Person Zombie Survival",
+        long: "Juego de acción y supervivencia en primera persona. Enfréntate a hordas de zombis, consigue dinero y desbloquea nuevas zonas y escapa de la industria infectada.",
+        tags: ["3D", "Zombies"],
+        image: "./Black_Steel.png",
+        url: "https://ivama.itch.io/blacksteel"
       }
     ];
 
