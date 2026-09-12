@@ -1,14 +1,16 @@
-# Game Programer Portfolio
+# Game Programmer Portfolio
 
 # Introduccion
-Bienvenido a mi página personal. Este github sirve como portfolio, donde puedes ver varios proyectos que muestran mis habilidades y capacidades como Game developer
+Bienvenido a mi página personal. En este repositorio encontrarás diferentes proyectos que muestran mis habilidades, conocimientos y experiencia en el desarrollo de videojuegos, así como ejemplos de los sistemas y funcionalidades que he desarrollado.
 
 # Nota
-Sientete libre de usar el codigo como referencia, pero el uso de imagenes, videos o simplemente el uso de mis proyecto y establecerlos como tuyos no esta permitido
+Siéntete libre de utilizar el código como referencia o con fines educativos. 
+
+Sin embargo, las imágenes, vídeos y demás recursos utilizados en los proyectos no pueden ser reutilizados sin permiso. Del mismo modo, los proyectos no pueden ser presentados o publicados como propios.
 
 # Live Demo
-Puedes exploral una version interactiva de este portfolio en el siguiente link: [Game Porgrammer Portfolio](https://ivanma777.github.io/Portfolio_IvanMartinezRuiz/)
+Puedes exploral una versión interactiva de este portfolio en el siguiente link: [Game Porgrammer Portfolio](https://ivanma777.github.io/Portfolio_IvanMartinezRuiz/)
 
 # Gracias
-Muchas gracias por ver este proyecto. Espero que aprecies el contenido y si tienes alguna sugerencia compartela conmigo
+Muchas gracias por visitar mi portfolio. Espero que disfrutes el contenido y, si tienes alguna sugerencia, no dudes en compartirla conmigo.
 
