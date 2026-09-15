@@ -365,9 +365,9 @@
           </nav>
 
           <div class="flex items-center gap-2">
-            <a href="#contacto" class="hidden sm:inline-flex btn-primary magnetic text-white text-sm font-semibold px-5 py-2.5 rounded-xl">
+            <button type="button" class="contact-open hidden sm:inline-flex btn-primary magnetic text-white text-sm font-semibold px-5 py-2.5 rounded-xl">
               Hablemos
-            </a>
+            </button>
             <button id="menu-btn" aria-label="Menú" class="md:hidden w-10 h-10 rounded-xl glass flex items-center justify-center text-slate-200">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
             </button>
@@ -379,7 +379,7 @@
             <a href="#inicio" class="mob-link px-4 py-3 rounded-xl hover:bg-white/5 hover:text-cyan-300 transition-colors">Inicio</a>
             <a href="#proyectos" class="mob-link px-4 py-3 rounded-xl hover:bg-white/5 hover:text-cyan-300 transition-colors">Proyectos</a>
             <a href="#sobre" class="mob-link about-link px-4 py-3 rounded-xl hover:bg-white/5 hover:text-cyan-300 transition-colors">Sobre mí</a>
-            <a href="#contacto" class="mob-link px-4 py-3 rounded-xl hover:bg-white/5 hover:text-cyan-300 transition-colors">Contacto</a>
+            <button type="button" class="contact-open mob-link w-full text-left px-4 py-3 rounded-xl hover:bg-white/5 hover:text-cyan-300 transition-colors">Contacto</button>
           </nav>
         </div>
       </div>
@@ -559,6 +559,44 @@
       </div>
     </footer>
 
+  </div>
+
+  <!-- ===== MODAL CONTACTO ===== -->
+  <div id="contact-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="contact-title">
+    <article class="modal-card glass rounded-3xl max-w-md w-full relative">
+      <button id="contact-close" aria-label="Cerrar"
+              class="absolute top-4 right-4 z-20 w-10 h-10 rounded-full glass flex items-center justify-center text-slate-300 hover:text-white hover:bg-red-500/20 hover:border-red-400/60 transition-all duration-300 text-lg font-bold">
+        ✕
+      </button>
+      <div class="p-8">
+        <h3 id="contact-title" class="font-display text-2xl font-extrabold text-white">Hablemos</h3>
+        <p class="mt-2 text-sm text-slate-400">Puedes contactarme por cualquiera de estas vías:</p>
+        <div class="mt-6 space-y-3">
+          <a href="https://instagram.com/locuel_art" target="_blank" rel="noopener"
+             class="flex items-center gap-4 px-5 py-4 rounded-xl bg-white/5 border border-white/10 hover:border-cyan-400/50 hover:bg-white/10 transition-all duration-300 group">
+            <span class="w-10 h-10 rounded-xl bg-gradient-to-br from-fuchsia-500 to-orange-400 flex items-center justify-center text-white">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.72 3.72 0 0 1-1.38-.9 3.72 3.72 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63a5.9 5.9 0 0 0-2.13 1.38A5.9 5.9 0 0 0 .63 4.14C.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.8.72 1.48 1.38 2.13a5.9 5.9 0 0 0 2.13 1.38c.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56a5.9 5.9 0 0 0 2.13-1.38 5.9 5.9 0 0 0 1.38-2.13c.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.9 5.9 0 0 0-1.38-2.13A5.9 5.9 0 0 0 19.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm7.85-10.4a1.44 1.44 0 1 1-2.88 0 1.44 1.44 0 0 1 2.88 0z"/></svg>
+            </span>
+            <span class="flex-1">
+              <span class="block text-[10px] font-mono tracking-widest uppercase text-slate-500">Instagram</span>
+              <span class="block text-sm font-semibold text-white group-hover:text-cyan-300 transition-colors">@locuel_art</span>
+            </span>
+            <svg class="w-4 h-4 text-slate-500 group-hover:text-cyan-300 group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+          </a>
+          <a href="mailto:ivanmr5604@gmail.com"
+             class="flex items-center gap-4 px-5 py-4 rounded-xl bg-white/5 border border-white/10 hover:border-purple-400/50 hover:bg-white/10 transition-all duration-300 group">
+            <span class="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-400 to-purple-600 flex items-center justify-center text-white">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l9 6 9-6M3 6h18v12H3z"/></svg>
+            </span>
+            <span class="flex-1 min-w-0">
+              <span class="block text-[10px] font-mono tracking-widest uppercase text-slate-500">Email</span>
+              <span class="block text-sm font-semibold text-white group-hover:text-purple-300 transition-colors truncate">ivanmr5604@gmail.com</span>
+            </span>
+            <svg class="w-4 h-4 text-slate-500 group-hover:text-purple-300 group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+          </a>
+        </div>
+      </div>
+    </article>
   </div>
 
   <!-- ===== MODAL JUEGO ===== -->
@@ -1066,8 +1104,26 @@
       l.addEventListener("click", e => { e.preventDefault(); openAbout(); })
     );
 
+    /* ================= MODAL CONTACTO ================= */
+    const contactModal = document.getElementById("contact-modal");
+    const contactClose = document.getElementById("contact-close");
+
+    function openContact() {
+      contactModal.classList.add("open");
+      document.body.style.overflow = "hidden";
+    }
+    function closeContact() {
+      contactModal.classList.remove("open");
+      document.body.style.overflow = "";
+    }
+    document.querySelectorAll(".contact-open").forEach(b =>
+      b.addEventListener("click", openContact)
+    );
+    contactClose.addEventListener("click", closeContact);
+    contactModal.addEventListener("click", e => { if (e.target === contactModal) closeContact(); });
+
     document.addEventListener("keydown", e => {
-      if (e.key === "Escape") { closeModal(); closeAbout(); }
+      if (e.key === "Escape") { closeModal(); closeAbout(); closeContact(); }
     });
   </script>
 </body>
